@@ -51,6 +51,28 @@ And render it like this:
 
 That would create a component that renders `Hello, Alex`.
 
+### Note on decorators
+
+The decorator syntax (`@WithEmberSupport`) is an experimental feature, currently in [stage 2 of the TC39 proposal process](https://github.com/tc39/proposals). If you’d prefer not to use decorators, the above example can also be written without them like this:
+
+```javascript
+// app/components/my-react-component.js
+import React from 'react';
+import WithEmberSupport from 'ember-react-components';
+
+class MyReactComponent extends React.Component {
+  render() {
+    const { name } = this.props;
+
+    return (
+      <p>Hello, {name}</p>
+    );
+  }
+}
+
+export default WithEmberSupport(MyReactComponent);
+```
+
 What all is this addon doing?
 ------------------------------------------------------------------------------
 
